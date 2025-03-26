@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mentee List</title>
+</head>
+<body>
+    <h2>Mentee List</h2>
+    <a href="/mentee/create">Create New Mentee</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="mentee : ${mentees}">
+            <td th:text="${mentee.id}"></td>
+            <td th:text="${mentee.name}"></td>
+            <td th:text="${mentee.email}"></td>
+            <td th:text="${mentee.course}"></td>
+            <td>
+                <a th:href="@{'/mentee/delete/' + ${mentee.id}}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
