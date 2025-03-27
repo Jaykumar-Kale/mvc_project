@@ -1,0 +1,33 @@
+<th:block th:replace="fragments/navbar :: *"></th:block>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Quiz Entry</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <th:block th:replace="fragments/navbar :: *"></th:block>
+
+    <div class="container">
+        <h2>Add Quiz Entry</h2>
+        <form action="/quiz/save" method="post" th:object="${quizEntry}">
+            <label>Student Name:</label>
+            <input type="text" th:field="*{studentName}" required>
+
+            <label>Email:</label>
+            <input type="email" th:field="*{email}" required>
+
+            <label>Score:</label>
+            <input type="number" th:field="*{score}" min="0" max="100">
+
+            <label>Present:</label>
+            <select th:field="*{present}">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

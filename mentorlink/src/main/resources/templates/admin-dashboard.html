@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <th:block th:replace="fragments/navbar :: *"></th:block>
+
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+        <p>Welcome, Admin! Manage system settings and track CSAC quiz results.</p>
+
+        <div class="grid">
+            <a href="/mentor" class="btn">Manage Mentors</a>
+            <a href="/mentee" class="btn">Manage Mentees</a>
+            <a href="/quiz" class="btn">View CSAC Quiz Data</a>
+            <a href="/logout" class="btn">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

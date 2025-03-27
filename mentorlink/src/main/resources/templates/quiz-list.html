@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Entries</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <th:block th:replace="fragments/navbar :: *"></th:block>
+
+    <div class="container">
+        <h2>Quiz Report</h2>
+
+        <form action="/quiz/date" method="get">
+            <label>Select Date:</label>
+            <input type="date" name="date" required>
+            <button type="submit">Filter</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Score</th>
+                <th>Status</th>
+            </tr>
+            <tr th:each="quiz : ${quizEntries}">
+                <td th:text="${quiz.quizDate}"></td>
+                <td th:text="${quiz.studentName}"></td>
+                <td th:text="${quiz.email}"></td>
+                <td th:text="${quiz.score}"></td>
+                <td th:text="${quiz.present ? 'Present' : 'Absent'}"></td>
+            </tr>
+        </table>
+
+        <a href="/quiz/create" class="btn">Add Quiz Entry</a>
+    </div>
+</body>
+</html>
