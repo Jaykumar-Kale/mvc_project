@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Create Mentee</title>
+    <title th:text="${mentee.id} != null ? 'Edit Mentee' : 'Add Mentee'">Mentee Form</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h2>Create Mentee</h2>
-    <form action="/mentee/save" method="post" th:object="${mentee}">
-        <label>Name:</label>
-        <input type="text" th:field="*{name}" required />
-        <br>
-        <label>Email:</label>
-        <input type="email" th:field="*{email}" required />
-        <br>
-        <label>Course:</label>
-        <input type="text" th:field="*{course}" required />
-        <br>
-        <button type="submit">Save</button>
-    </form>
+    <th:block th:replace="fragments/navbar :: navbar"></th:block>
+    
+    <div class="container">
+        <h2 th:text="${mentee.id} != null ? 'Edit Mentee' : 'Add Mentee'">Mentee Form</h2>
+        <form th:action="@{${mentee.id} != null ? '/mentee/update/' + ${mentee.id} : '/mentee/save'}" method="post" th:object="${mentee}">
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" required>
+            
+            <label>Email:</label>
+            <input type="email" th:field="*{email}" required>
+            
+            <label>Course:</label>
+            <input type="text" th:field="*{course}" required>
+            
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    
+    <div class="footer">
+        &copy; 2025 MentorLink. All Rights Reserved.
+    </div>
 </body>
 </html>

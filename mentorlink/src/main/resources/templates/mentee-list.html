@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Mentee List</title>
+    <title>Mentees</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h2>Mentee List</h2>
-    <a href="/mentee/create">Create New Mentee</a>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Course</th>
-            <th>Actions</th>
-        </tr>
-        <tr th:each="mentee : ${mentees}">
-            <td th:text="${mentee.id}"></td>
-            <td th:text="${mentee.name}"></td>
-            <td th:text="${mentee.email}"></td>
-            <td th:text="${mentee.course}"></td>
-            <td>
-                <a th:href="@{'/mentee/delete/' + ${mentee.id}}">Delete</a>
-            </td>
-        </tr>
-    </table>
+    <th:block th:replace="fragments/navbar :: navbar"></th:block>
+    
+    <div class="container">
+        <h2>Mentees</h2>
+        <a href="/mentee/create" class="btn">Add Mentee</a>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Course</th>
+                <th>Actions</th>
+            </tr>
+            <tr th:each="mentee : ${mentees}">
+                <td th:text="${mentee.id}"></td>
+                <td th:text="${mentee.name}"></td>
+                <td th:text="${mentee.email}"></td>
+                <td th:text="${mentee.course}"></td>
+                <td>
+                    <a th:href="@{'/mentee/edit/' + ${mentee.id}}" class="btn">Edit</a>
+                    <a th:href="@{'/mentee/delete/' + ${mentee.id}}" class="btn"
+                       onclick="return confirm('Are you sure you want to delete this mentee?');">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="footer">
+        &copy; 2025 MentorLink. All Rights Reserved.
+    </div>
 </body>
 </html>

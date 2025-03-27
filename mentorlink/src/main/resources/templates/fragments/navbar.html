@@ -1,12 +1,14 @@
 <!-- src/main/resources/templates/fragments/navbar.html -->
 <div th:fragment="navbar">
     <nav class="navbar">
-        <a href="/">MentorLink</a>
         <div>
-            <a href="/mentor">Mentors</a>
-            <a href="/mentee">Mentees</a>
-            <a href="/quiz">CSAC Quiz</a>
-            <a href="/admin">Admin</a>
+            <a href="/" class="logo">MentorLink</a>
+        </div>
+        <div>
+            <a href="/mentor" class="btn">Mentors</a>
+            <a href="/mentee" class="btn">Mentees</a>
+            <a href="/quiz" class="btn">CSAC Quiz</a>
+            <a href="/admin" class="btn">Admin</a>
             <a href="/logout" class="btn">Logout</a>
         </div>
     </nav>

@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Create Admin</title>
+    <title th:text="${admin.id} != null ? 'Edit Admin' : 'Add Admin'">Admin Form</title>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h2>Create Admin</h2>
-    <form action="/admin/save" method="post" th:object="${admin}">
-        <label>Name:</label>
-        <input type="text" th:field="*{name}" required />
-        <br>
-        <label>Email:</label>
-        <input type="email" th:field="*{email}" required />
-        <br>
-        <label>Role:</label>
-        <input type="text" th:field="*{role}" required />
-        <br>
-        <button type="submit">Save</button>
-    </form>
+    <th:block th:replace="fragments/navbar :: navbar"></th:block>
+    
+    <div class="container">
+        <h2 th:text="${admin.id} != null ? 'Edit Admin' : 'Add Admin'">Admin Form</h2>
+        <form th:action="@{${admin.id} != null ? '/admin/update/' + ${admin.id} : '/admin/save'}" method="post" th:object="${admin}">
+            <label>Name:</label>
+            <input type="text" th:field="*{name}" required>
+            
+            <label>Email:</label>
+            <input type="email" th:field="*{email}" required>
+            
+            <label>Role:</label>
+            <input type="text" th:field="*{role}" required>
+            
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    
+    <div class="footer">
+        &copy; 2025 MentorLink. All Rights Reserved.
+    </div>
 </body>
 </html>

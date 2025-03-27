@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MentorLink Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Include Navbar -->
+    <th:block th:replace="fragments/navbar :: navbar"></th:block>
+    
+    <div class="container">
+        <h1>Welcome to MentorLink Dashboard</h1>
+        <p>Manage mentors, mentees, quizzes and more.</p>
+        <div>
+            <a href="/mentor" class="btn">Manage Mentors</a>
+            <a href="/mentee" class="btn">Manage Mentees</a>
+            <a href="/quiz" class="btn">View CSAC Quiz Report</a>
+            <a href="/admin" class="btn">Admin Settings</a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        &copy; 2025 MentorLink. All Rights Reserved.
+    </div>
+</body>
+</html>
